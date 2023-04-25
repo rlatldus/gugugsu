@@ -1,0 +1,240 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/*기본스타일 */
+body {
+  font-size: 12px;
+}
+body fieldset {
+  border: none;
+}
+body fieldset legend {
+  display: none;
+}
+body fieldset legend label,
+body fieldset legend input,
+body fieldset legend select {
+  vertical-align: middle;
+}
+
+/*기본링크스타일*/
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+a:active {
+  color: black;
+  text-decoration: none;
+}
+a:focus {
+  color: black;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+div#wraper {
+  position: relative;
+  height: 100%;
+  background-color: #e36c6c;
+}
+div#wraper div#loginBox {
+  position: absolute;
+  display: none;
+  top: 150px;
+  left: 50%;
+  margin-left: -250px;
+  width: 500px;
+  height: 500px;
+  background-color: #ffffff;
+  /*TODO 비회원주문*/
+}
+div#wraper div#loginBox h3#tab01 {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 150px;
+  height: 50px;
+  background-color: aqua;
+}
+div#wraper div#loginBox h3#tab01 a {
+  display: block;
+  text-align: center;
+  padding: 15px 0;
+  font-weight: bold;
+  color: red;
+  border-bottom: 3px solid red;
+}
+div#wraper div#loginBox section#login {
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  display: block;
+  width: 300px;
+  border: 1px solid black;
+}
+div#wraper div#loginBox section#login form {
+  border: 1px solid blue;
+}
+div#wraper div#loginBox section#login form table {
+  margin: 0 10px;
+  width: 280px;
+  border-collapse: collapse;
+  border: 0px solid red;
+}
+div#wraper div#loginBox section#login form table td {
+  padding: 5px 5px 5px 0;
+  /*로그인 버튼*/
+}
+div#wraper div#loginBox section#login form table td label {
+  font-weight: bold;
+  border: 0px solid rgb(64, 255, 0);
+}
+div#wraper div#loginBox section#login form table td button {
+  padding: 20px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: darkblue;
+}
+div#wraper div#loginBox section#login form table input.box {
+  padding: 3px 0;
+  padding-left: 10px;
+  width: 130px;
+}
+div#wraper div#loginBox div.find {
+  padding: 10px 0;
+  margin: 0 5px;
+  background-color: #b42a2a;
+}
+div#wraper div#loginBox h3#tab02 {
+  position: absolute;
+  left: 250px;
+  top: 100px;
+  width: 150px;
+}
+div#wraper div#loginBox h3#tab02 a {
+  display: block;
+  /*접근성*/
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px 0;
+  background-color: #ffffff;
+}
+div#wraper div#loginBox section.login_guest {
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  width: 300px;
+  border: 1px solid black;
+}
+div#wraper div#loginBox section.login_guest form {
+  border: 0px solid blue;
+}
+div#wraper div#loginBox section.login_guest form table {
+  margin: 0 10px;
+  width: 280px;
+  border: 0px solid red;
+  border-collapse: collapse;
+}
+div#wraper div#loginBox section.login_guest form table td {
+  padding: 5px 5px 5px 0;
+}
+div#wraper div#loginBox section.login_guest form table td label {
+  font-weight: bold;
+  border: 0px solid orange;
+}
+div#wraper div#loginBox section.login_guest form table td button {
+  padding: 20px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: darkblue;
+}
+div#wraper div#loginBox section.login_guest form table td input.box {
+  padding: 3px 0;
+  padding-left: 10px;
+  width: 130px;
+}
+div#wraper div#loginBox section.login_guest div.find {
+  padding: 10px 0;
+  margin: 0 5px;
+  border-top: 1px solid #dddddd;
+}
+div#wraper div#loginBox button.login_close {
+  position: absolute;
+  top: 0px;
+  left: 450px;
+  padding: 10px;
+  width: 50px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+}
+div#wraper header#header {
+  margin: 0 auto;
+  width: 1024px;
+  background-color: #b42a2a;
+}
+div#wraper header#header::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+div#wraper header#header div.header_box::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+div#wraper header#header div.header_box h1 {
+  float: left;
+}
+div#wraper header#header div.header_box ul {
+  float: right;
+}
+div#wraper header#header div.header_box ul li {
+  float: left;
+}
+div#wraper header#header div.header_box_nav ul li {
+  float: left;
+}
+div#wraper section#gug_main_img {
+  text-align: center;
+}
+div#wraper section#gug_main_img ul {
+  width: 300px;
+  margin: 0 auto;
+  background-color: antiquewhite;
+}
+div#wraper section#gug_main_img ul::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+div#wraper section#gug_main_img ul li {
+  float: left;
+  list-style: none;
+  padding: 10px;
+  background-color: aqua;
+}
+div#wraper section#gug_main_img ul li:last-child {
+  padding-right: 60px;
+}
+div#wraper section#gug_main_img ul li:first-child {
+  padding-left: 60px;
+}
+
+/*# sourceMappingURL=style.css.map */

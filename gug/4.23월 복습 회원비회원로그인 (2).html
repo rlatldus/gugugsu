@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <meta http-equiv="X-UA-Compatible" content = "ie=edge">
+        <title>회원/비회원 로그인</title>
+        <style>
+            /*여백초기화*/
+            * {margin:0; padding:0}    
+            /*테두리없앰*/
+            fieldset {border:none}
+            /*제목숨김*/
+            legend {display:none}
+            /*정렬*/
+            label,input,select {vertical-align:middle}
+            /*기본링크스타일*/
+            a:link {color:black; text-decoration:none}
+            a:visited {color:black; text-decoration:none}
+            a:hover {color:black; text-decoration:none}
+            a:active {color:black; text-decoration:none}
+            a:focus {color:black; text-decoration:none}
+            
+            
+            /*기본스타일 */
+            body {font-size:12px}
+            
+            /* 회원,비회원 로그인이 들어있는 전체영역*/
+            div#loginBox {position:relative; border:0px solid black}
+            
+            /*회원로그인영역---------------------------------------------------*/
+            section.login {display:block; position:absolute; top:50px; width:300px; background-color: ; border:1px solid black;}
+            /*회원주문 탭메뉴*/
+            h3#tab01 {position:absolute; left:0; top:0; width:150px; height:50px; color:darkblue; padding:10px; background-color: }
+            h3#tab01 a {display:block;/*접근성*/ color:black; font-weight: bold;  text-align:center; padding-top:10px; padding-bottom:10px; color:red; border-bottom: 3px solid red; background-color: ;  }
+            /*로그인 폼영역*/
+            section.login form {border:0px solid blue}
+            /*로그인 테이블*/
+            section.login form table {
+                width:280px; border:0px solid red; border-collapse: collapse; 
+                margin-left:10px; margin-right:10px;
+            }
+            /*칸*/
+            section.login form table td {padding-top:5px; padding-bottom:5px; padding-left:5px;}
+            /*로그인 버튼*/
+            section.login form table td button {
+                font-size:12px; padding:20px 10px 20px 10px; 
+                border:0px solid black; background-color: darkblue; color: white; font-weight:bold; 
+            }
+            /*레이블*/
+            section.login form table td label {border:0px solid orange}
+            /*로그인,비밀번호 입력상자*/
+            section.login form table input.box {
+                width:130px; padding-top:3px; padding-bottom:3px; padding-left:10px;
+            }
+            /*아이디/비밀번호 찾기*/
+            div.find {padding:10px; margin-left:5px; margin-right:5px; border-top:1px solid #dddddd}
+            
+            /*비회원 로그인-----------------------------------------------------*/
+            /*로그인영역*/
+            section.login_guest {display:none;/*숨김처리*/ position:absolute; top:50px; width:300px; background-color:; border:1px solid black;}
+            /*비회원주문 탭메뉴*/
+            h3#tab02 {position:absolute; left:150px; top:0; width:150px; color:darkblue; padding:10px; background-color:}
+            h3#tab02 a {display:block;/*접근성*/ color:black; font-weight: bold;  text-align:center; padding-top:10px; padding-bottom:10px; background-color:;  border-bottom:0px solid red;}
+            /*로그인 폼영역*/
+            section.login_guest form {border:0px solid blue}
+            /*로그인 테이블*/
+            section.login_guest form table {
+                width:280px; border:0px solid red; border-collapse: collapse; 
+                margin-left:10px; margin-right:10px;
+            }
+            /*칸*/
+            section.login_guest form table td {padding-top:5px; padding-bottom:5px; padding-left:5px;}
+            /*로그인 버튼*/
+            section.login_guest form table td button {
+                font-size:12px; padding:20px 10px 20px 10px; 
+                border:0px solid black; background-color: darkblue; color: white; font-weight:bold; 
+            }
+            /*레이블*/
+            section.login_guest form table td label {border:0px solid orange}
+            /*로그인,비밀번호 입력상자*/
+            section.login_guest form table input.box {
+                width:130px; padding-top:3px; padding-bottom:3px; padding-left:10px;
+            }
+            /*아이디/비밀번호 찾기*/
+            div.find {padding:10px; margin-left:5px; margin-right:5px; border-top:1px solid #dddddd}            
+        </style>
+        <script>
+
+ 			var show_login = document.getElementById("login");//회원주문 로그인영역
+			var show_login_guest = document.getElementById("login_guest");//비회원주문 로그인영역     
+			var tab1 = document.getElementById("tab1");//탭메뉴(회원주문)
+			var tab2 = document.getElementById("tab2");//탭메뉴(비회원주문)   
+
+            function tab2(){//비회원주문 탭메뉴를 클릭했을때 
+                
+				
+	                tab2.style.borderBottom = "3px solid red";//탭메뉴 하단 디자인
+					tab1.style.borderBottom = "3px solid white";            
+					tab2.style.color = "red";//탭메뉴 글자 빨간색
+					tab1.style.color = "black";                
+					show_login.style.display = "none";  //회원주문 로그인영역
+					show_login_guest.style.display = "block";//비회원주문 로그인영역  
+					
+					show_login.style.zIndex = 1;             
+					show_login_guest.style.zIndex = 2;//겹쳐보이는 순서지정  				
+				
+   
+            }            
+            
+            function login(){//로그인함수
+                //alert("로그인함수 연결되었습니다");//테스트
+                var mem1_id = "회원1";//멤버1의 아이디
+                var mem2_pw = 1234;   //멤버1의 비밀번호
+                //getElementById() 아이디를 사용한 태그를 찾아주는 함수 
+
+                var userId = document.getElementById("userId").value;
+                var userPw = document.getElementById("userPw").value;
+                if( (userId==mem1_id) && (userPw==mem2_pw)){//아이디정보와 비밀번호정보가 일치했을때 
+                   document.writeln("로그인 되었습니다~");
+                }else if((userId==mem1_id) || (userPw==mem2_pw)){//아이디 또는 비밀번호 정보가 일치하지 않은경우
+                     document.writeln("아이디 또는 비밀번호 정보가 일치하지 않습니다!");             
+                }else{
+                   document.writeln("로그인 정보가 맞지 않습니다. 아이디나 비밀번호를 확인하세요!");               
+                }            
+            
+            }
+          
+            function tab1(s){//회원주문 탭메뉴를 클릭했을때
+				var show_login = s.getAttribute("href");//회원주문 로그인영역
+				var show_login_guest = document.getElementById("login_guest");//비회원주문 로그인영역     
+				var tab1 = document.getElementById("tab1");//탭메뉴(회원주문)
+				var tab2 = document.getElementById("tab2");//탭메뉴(비회원주문)    
+				//alert(show_login);//null 다시하니까  #login나옴
+				if(show_login == "#login"){//alert("ok");
+					tab1.style.borderBottom = "3px solid red";//탭메뉴 하단 디자인
+					tab2.style.borderBottom = "3px solid white";
+					tab1.style.color = "red";//탭메뉴 글자 빨간색
+					tab2.style.color = "black";
+					show_login.style.disPlay = "block";//회원주문 로그인영역
+					show_login_guest.style.display = "none";//비회원주문 로그인영역     
+					show_login.style.zIndex = 2;//겹쳐보이는 순서지정             
+					show_login_guest.style.zIndex = 1;    					
+				}else if(show_login == "#login_guest"){
+					tab2.style.borderBottom = "3px solid red";//탭메뉴 하단 디자인
+					tab1.style.borderBottom = "3px solid white";            
+					tab2.style.color = "red";//탭메뉴 글자 빨간색
+					tab1.style.color = "black";                
+					show_login.style.disPlay = "none";  //회원주문 로그인영역
+					show_login_guest.style.display = "block";//비회원주문 로그인영역  
+					show_login.style.zIndex = 1;             
+					show_login_guest.style.zIndex = 2;//겹쳐보이는 순서지정  					
+				}          
+            }
+        </script>
+    </head>
+    
+    <body>
+        <div id="loginBox"><!-- 로그인:회원로그인/비회원로그인 영역 -->
+        <h3 id="tab01"><a href="#login" id="tab1" onClick="tab1(); return false">회원주문</a></h3>
+        <section id="login" class="login">
+            <form onsubmit="login()">
+                <fieldset>
+                    <legend>로그인정보</legend>
+                    <!-- 폼내용을 마크업하는 방법3가지:table, ul li, p -->
+                    <table border="0">
+                        <tr>
+                            <td><label for="userId">아이디</label></td>
+                            <td><input type="text" id="userId" class="box" required placeholder="Guest" tabindex="1"> </td>
+                            <td rowspan="2"><button type="submit" tabindex="3">로그인</button></td>
+                        </tr>
+                        <tr>
+                            <td><label for="userPw">비밀번호</label></td>
+                            <td><input type="password" id="userPw" class="box" required placeholder="******" tabindex="2"></td>
+                        </tr>                        
+                    </table>
+                </fieldset>                
+            </form>        
+            <div class="find">
+                <a href="#">아이디</a> 회원
+                <a href="#">비밀번호찾기</a>  
+            </div>
+          </section>   
+            
+            <h3 id="tab02"><a href="#" id="tab2" onClick="tab2();return false">비회원 주문</a></h3>
+        <section id="login_guest" class="login_guest">
+              <form onsubmit="login()">
+                <fieldset>
+                    <legend>비회원 로그인정보</legend>
+                    <!-- 폼내용을 마크업하는 방법3가지:table, ul li, p -->
+                    <table border="0">
+                        <tr>
+                            <td><label for="userId">이름</label></td>
+                            <td><input type="text" id="userId" class="box" required placeholder="Guest" tabindex="1"> </td>
+                            <td rowspan="2"><button type="submit" tabindex="3">로그인</button></td>
+                        </tr>
+                        <tr>
+                            <td><label for="userPw">연락처</label></td>
+                            <td><input type="password" id="userPw" class="box" required placeholder="******" tabindex="2"></td>
+                        </tr>                        
+                    </table>
+                </fieldset>                
+            </form>        
+            <div class="find">
+                <a href="#">아이디</a> 비회원
+                <a href="#">비밀번호찾기</a>  
+            </div>
+          </section>        
+        </div>
+        
+        
+        
+        
+        
+    </body>
+</html>

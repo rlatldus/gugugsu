@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="wraper">
+    <!-- <a href="#" onclick="login_close('block');">로그인</TODO> -->
+    <!--NOTE 로그인:회원로그인/비회원로그인 영역 -->
+    <div id="loginBox">
+      <!-- TODO 회원주문 -->
+      <h3 id="tab01"><a href="#login" id="tab1" onClick="tab(this); return false">회원주문</a></h3>
+      <!-- TODO 로그인영역1 -->
+      <section id="login" class="login">
+        <form onsubmit="login()">
+          <fieldset>
+            <legend>로그인정보</legend>
+            <table border="0">
+              <tr>
+                <td><label for="userId">아이디</label></td>
+                <td><input type="text" id="userId" class="box" required placeholder="Guest" tabindex="1">
+                </td>
+                <td rowspan="2"><button type="submit" tabindex="3">로그인</button></td>
+              </tr>
+              <tr>
+                <td><label for="userPw">비밀번호</label></td>
+                <td><input type="password" id="userPw" class="box" required placeholder="******" tabindex="2"></td>
+              </tr>
+            </table>
+          </fieldset>
+        </form>
+        <!-- TODO 아이디 비번찾기 -->
+        <div class="find">
+          <a href="#">아이디</a> 회원
+          <a href="#">비밀번호찾기</a>
+        </div>
+      </section>
+      <!-- TODO 비회원주문 -->
+      <h3 id="tab02"><a href="#login_guest" id="tab2" onClick="tab(this);return false">비회원 주문</a></h3>
+      <!-- TODO 로그인영역2 -->
+      <section id="login_guest" class="login_guest">
+        <form onsubmit="login()">
+          <fieldset>
+            <legend>비회원 로그인정보</legend>
+            <!-- 폼내용을 마크업하는 방법3가지:table, ul li, p -->
+            <table border="0">
+              <tr>
+                <td><label for="userId">이름</label></td>
+                <td><input type="text" id="userId" class="box" required placeholder="Guest" tabindex="1">
+                </td>
+                <td rowspan="2"><button type="submit" tabindex="3">로그인</button></td>
+              </tr>
+              <tr>
+                <td><label for="userPw">연락처</label></td>
+                <td><input type="password" id="userPw" class="box" required placeholder="******" tabindex="2"></td>
+              </tr>
+            </table>
+          </fieldset>
+        </form>
+        <div class="find">
+          <a href="#">아이디</a> 비회원
+          <a href="#">비밀번호찾기</a>
+        </div>
+      </section>
+
+
+      <!-- TODO닫기 버튼 -->
+      <button class="login_close" onclick="login_close('none');">닫기</button>
+    </div>
+
+    <!-- NOTE 해더부분 -->
+    <header id="header">
+      <div class="header_box">
+        <h1><a href="#">로고</a></h1>
+        <ul>
+          <li><a href="#" onclick="login_close('block');">로그인</a></li>
+          <li>회원가입</li>
+        </ul>
+      </div>
+      <div class="header_box_nav">
+      <ul>
+        <li>메뉴</li>
+        <li>메뉴</li>
+        <li>메뉴</li>
+        <li>메뉴</li>
+      </ul>
+      </div>
+    </header>
+
+    <!-- NOTE 국수 메인 사진 호버시 동작https://jenny-daru.tistory.com/17 버튼 클릭 이벤트 -->
+    <section id="gug_main_img">
+      <h3>국수집 운영</h3>
+      <div>
+        <img src="image/gug2.jpg" height="400px" id="placeholder" alt="car">
+      </div>
+      <ul>
+        <li><a href="image/gug2.jpg" height="400" onmouseover="showCar(this); return false"><img src="image/button.png"
+              alt="국수"></a>
+        </li>
+        <li><a href="image/gug3.jpg" height="400" onmouseover="showCar(this); return false"><img src="image/button.png"
+              alt="국수"></a>
+        </li>
+        <li><a href="image/gug4.jpg" height="400" onmouseover="showCar(this); return false"><img src="image/button.png"
+              alt="국수"></a>
+        </li>
+        <li><a href="image/gug2.jpg" height="400" onmouseover="showCar(this); return false"><img src="image/button.png"
+              alt="국수"></a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</body>
+
+</html>
