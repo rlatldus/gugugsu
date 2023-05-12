@@ -5,116 +5,175 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="index.js"></script>
+  <script src="./index.js"></script>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/styleLogin.css">
+  <link rel="stylesheet" href="css/index.css">
+  <title>애월국수</title>
+
 </head>
 
 <body>
-  <div id="wraper">
-    <!-- <a href="#" onclick="login_close('block');">로그인</TODO> -->
-    <!--NOTE 로그인:회원로그인/비회원로그인 영역 -->
-    <div id="loginBox">
-      <!-- TODO 회원주문 -->
-      <h3 id="tab01"><a href="#login" id="tab1" onClick="tab(this); return false">회원주문</a></h3>
-      <!-- TODO 로그인영역1 -->
-      <section id="login" class="login">
-        <form onsubmit="login()">
-          <fieldset>
-            <legend>로그인정보</legend>
-            <table border="0">
-              <tr>
-                <td><label for="userId">아이디</label></td>
-                <td><input type="text" id="userId" class="box" required placeholder="Guest" tabindex="1">
-                </td>
-                <td rowspan="2"><button type="submit" tabindex="3">로그인</button></td>
-              </tr>
-              <tr>
-                <td><label for="userPw">비밀번호</label></td>
-                <td><input type="password" id="userPw" class="box" required placeholder="******" tabindex="2"></td>
-              </tr>
-            </table>
-          </fieldset>
-        </form>
-        <!-- TODO 아이디 비번찾기 -->
-        <div class="find">
-          <a href="#">아이디</a> 회원
-          <a href="#">비밀번호찾기</a>
-        </div>
-      </section>
-      <!-- TODO 비회원주문 -->
-      <h3 id="tab02"><a href="#login_guest" id="tab2" onClick="tab(this);return false">비회원 주문</a></h3>
-      <!-- TODO 로그인영역2 -->
-      <section id="login_guest" class="login_guest">
-        <form onsubmit="login()">
-          <fieldset>
-            <legend>비회원 로그인정보</legend>
-            <!-- 폼내용을 마크업하는 방법3가지:table, ul li, p -->
-            <table border="0">
-              <tr>
-                <td><label for="userId">이름</label></td>
-                <td><input type="text" id="userId" class="box" required placeholder="Guest" tabindex="1">
-                </td>
-                <td rowspan="2"><button type="submit" tabindex="3">로그인</button></td>
-              </tr>
-              <tr>
-                <td><label for="userPw">연락처</label></td>
-                <td><input type="password" id="userPw" class="box" required placeholder="******" tabindex="2"></td>
-              </tr>
-            </table>
-          </fieldset>
-        </form>
-        <div class="find">
-          <a href="#">아이디</a> 비회원
-          <a href="#">비밀번호찾기</a>
-        </div>
-      </section>
-
-
-      <!-- TODO닫기 버튼 -->
-      <button class="login_close" onclick="login_close('none');">닫기</button>
-    </div>
-
-    <!-- NOTE 해더부분 -->
-    <header id="header">
-      <div class="header_box">
-        <h1><a href="#">로고</a></h1>
-        <ul>
-          <li><a href="#" onclick="login_close('block');">로그인</a></li>
-          <li>회원가입</li>
-        </ul>
+  <!-- https://www.goobne.co.kr/brd/event/list 굽네
+  http://ruuzella.co.kr/ 루젤라
+  http://xinweifang.dwebs1.kr/page.php?p_id=guide1 신미방
+  http://xn--o39a52g22b168bkxj.com/page.php?p_id=business1내찜닭
+  로고로 홈/ 회사소개, 메뉴, 지점안내, 창업안내, 이벤트 -->
+  <div id="loginBox">
+    <!-- TODO 회원주문 -->
+    <h3 id="tab01"><a href="#login" id="tab1" onClick="tab(this); return false">회원주문</a></h3>
+    <!-- TODO 로그인영역1 -->
+    <section id="login" class="login">
+      <form onsubmit="login()">
+        <fieldset>
+          <legend>로그인정보</legend>
+          <table border="0">
+            <tr>
+              <td><label for="userId">아이디</label></td>
+              <td><input type="text" id="userId" class="box" required placeholder="Guest" tabindex="1">
+              </td>
+              <td rowspan="2"><button type="submit" tabindex="3">로그인</button></td>
+            </tr>
+            <tr>
+              <td><label for="userPw">비밀번호</label></td>
+              <td><input type="password" id="userPw" class="box" required placeholder="******" tabindex="2"></td>
+            </tr>
+          </table>
+        </fieldset>
+      </form>
+      <!-- TODO 아이디 비번찾기 -->
+      <div class="find">
+        <a href="#">아이디</a>
+        <a href="#">비밀번호찾기</a>
       </div>
-      <div class="header_box_nav">
-      <ul>
-        <li>메뉴</li>
-        <li>메뉴</li>
-        <li>메뉴</li>
-        <li>메뉴</li>
-      </ul>
-      </div>
-    </header>
-
-    <!-- NOTE 국수 메인 사진 호버시 동작https://jenny-daru.tistory.com/17 버튼 클릭 이벤트 -->
-    <section id="gug_main_img">
-      <h3>국수집 운영</h3>
-      <div>
-        <img src="image/gug2.jpg" height="400px" id="placeholder" alt="car">
-      </div>
-      <ul>
-        <li><a href="image/gug2.jpg" height="400" onmouseover="showCar(this); return false"><img src="image/button.png"
-              alt="국수"></a>
-        </li>
-        <li><a href="image/gug3.jpg" height="400" onmouseover="showCar(this); return false"><img src="image/button.png"
-              alt="국수"></a>
-        </li>
-        <li><a href="image/gug4.jpg" height="400" onmouseover="showCar(this); return false"><img src="image/button.png"
-              alt="국수"></a>
-        </li>
-        <li><a href="image/gug2.jpg" height="400" onmouseover="showCar(this); return false"><img src="image/button.png"
-              alt="국수"></a>
-        </li>
-      </ul>
     </section>
+    <!-- TODO 비회원주문 -->
+    <h3 id="tab02"><a href="#login_guest" id="tab2" onClick="tab(this);return false">비회원 주문</a></h3>
+    <!-- TODO 로그인영역2 -->
+    <section id="login_guest" class="login_guest">
+      <form onsubmit="login()">
+        <fieldset>
+          <legend>비회원 로그인정보</legend>
+          <!-- 폼내용을 마크업하는 방법3가지:table, ul li, p -->
+          <table border="0">
+            <tr>
+              <td><label for="userId">이름</label></td>
+              <td><input type="text" id="userId" class="box" required placeholder="Guest" tabindex="1">
+              </td>
+              <td rowspan="2"><button type="submit" tabindex="3">로그인</button></td>
+            </tr>
+            <tr>
+              <td><label for="userPw">연락처</label></td>
+              <td><input type="password" id="userPw" class="box" required placeholder="******" tabindex="2"></td>
+            </tr>
+          </table>
+        </fieldset>
+      </form>
+      <div class="find">
+        <a href="#">아이디</a>
+        <a href="#">비밀번호찾기</a>
+      </div>
+    </section>
+  </div>
+  <div id="wrap">
+
+    <div id="contentswrap">
+      <div class="headervar">
+        <header>
+          <h1><a href=""> 애월국수</a> </h1>
+          <nav>
+            <ul id="main">
+              <li> <a href=""> 회사소개</a>
+                <ul class="sub">
+                  <li><a href="#">인사말</a></li>
+                  <li><a href="#">오시는 길</a></li>
+                </ul>
+              </li>
+              <li> <a href=""> 메뉴</a></li>
+              <li> <a href=""> 지점안내</a></li>
+              <li> <a href=""> 창업안내</a>
+                <ul class="sub">
+                  <li><a href="#">창업안내</a></li>
+                  <li><a href="#">창업문의</a></li>
+                  <li><a href="#">소식</a></li>
+
+                </ul>
+              </li>
+              <li><a href="#" onclick="login_close('block');">로그인</a></li>
+              <li><a href="#">회원가입</a></li>
+            </ul>
+            <!-- <div class="bar"><a href="http://">메뉴</a></div> -->
+          </nav>
+        </header>
+      </div>
+      <div id="section">
+        <div id="top">
+          <p class="top_letter">
+            힘든 일상 속, 만족스러운 한끼 <br>
+            <strong>애월 국수</strong> <br>
+            애월 국수는 힘든 일상 속에<br>
+            만족스러운 한끼 식사가 되도록 노력하겠습니다.<br>
+          </p>
+
+          <!-- <section id="sideImage"> -->
+          <div class="slide slide_wrap">
+            <div class="slide_item item1">1</div>
+            <div class="slide_item item2">2</div>
+            <div class="slide_item item3">3</div>
+            <div class="slide_item item4">4</div>
+            <div class="slide_item item5">5</div>
+            <div class="slide_prev_button slide_button">◀</div>
+            <div class="slide_next_button slide_button">▶</div>
+            <ul class="slide_pagination"></ul>
+          </div>
+          <script src="./slide.js"></script>
+          <!-- </section> -->
+
+        </div>
+        <section class="no1">
+          <h2>We Are</h2>
+          <p>힘든 일상속에 만족스러운 한끼식사가 되도록 노력하겠습니다. <br>
+            신미방마라탕은 대중분들이 즐겨찾는 마라탕전문점입니다. <br>
+            많은 연구와 시도로 탄생한 신미방만의 핵심적인 육수와 소스로 자부합니다.<br>
+            마라탕 초보분들 또한 현지 마라탕을 그리워하시는 분들도 만족하실 수 있게 많은 연구를 해왔습니다.<br>
+            항상 가족이 드신다 생각하고 엄선된 신선한 재료와 정성스러운 조리로 다가가도록 하겠습니다.<br>
+          </p>
+        </section>
+        <section class="gugsuImages">
+          <div class="containers">
+            <img class="img-gusu" src="image/gug1.jpg" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+            <img class="img-gusu" src="image/gug3.jpg" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+            <img class="img-gusu" src="image/gug5.jpg" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)">
+          </div>
+        </section>
+        <section class="no2wrap">
+          <div class="no2">
+            <dl>
+              <dt>애월 국수 소식지</dt>
+              <dd><a href="#">공지사항</a> <time>2000.20.20</time> </dd>
+              <dd><a href="#">공지사항</a> <time>2000.20.20</time></dd>
+              <dd><a href="#">공지사항</a> <time>2000.20.20</time></dd>
+              <dd><a href="#">공지사항</a> <time>2000.20.20</time></dd>
+              <dd><a href="#">공지사항</a> <time>2000.20.20</time></dd>
+              <dd><a href="#">공지사항</a> <time>2000.20.20</time></dd>
+            </dl>
+          </div>
+          <div class="no2">
+            <dl>
+              <dt>애월 국수 월간 이벤트</dt>
+              <dd><a href="#">이벤트 1</a> <time>2000.20.20</time> </dd>
+              <dd><a href="#">이벤트 2</a> <time>2000.20.20</time></dd>
+              <dd><a href="#">이벤트 3</a> <time>2000.20.20</time></dd>
+              <dd><a href="#">이벤트 4</a> <time>2000.20.20</time></dd>
+            </dl>
+          </div>
+        </section>
+
+      </div>
+      <footer>
+        풋터
+      </footer>
+    </div>
   </div>
 </body>
 

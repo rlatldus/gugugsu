@@ -1,240 +1,147 @@
-@charset "UTF-8";
-* {
+.slide {
+  /* layout */
+  display: flex;
+  flex-wrap: nowrap;
+  /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+  overflow: hidden;
+
+  /* position */
+  /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+  position: relative;
+
+  /* size */
+  width: 100%;
+
+  /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+  user-select: none;
+}
+
+.slide_item {
+  /* layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
+  position: relative;
+  left: 0px;
+
+  /* size */
+  width: 100%;
+  height: 600px;
+  /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+  flex-shrink: 0;
+
+  /* transition */
+  transition: left 0.1s;
+}
+
+.slide_button {
+  /* layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* position */
+  position: absolute;
+  /* 버튼이 중앙에 위치하게 하기위해 계산 */
+  top: calc(50% - 16px);
+
+  /* size */
+  width: 40px;
+  height: 40px;
+
+  /* style */
+  border-radius: 100%;
+  background-color: #cccc;
+  cursor: pointer;
+}
+
+.slide_prev_button {
+  left: 10px;
+}
+
+.slide_next_button {
+  right: 10px;
+}
+
+/* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
+.slide_item.item1 {
+  background-color: darkgoldenrod;
+  background-image: url(../image/gug1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slide_item.item2 {
+  background-color: aqua;
+  background-image: url(../image/gug3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slide_item.item3 {
+  background-color: blueviolet;
+  background-image: url(../image/gug4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slide_item.item4 {
+  background-color: burlywood;
+  background-image: url(../image/gug5.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slide_item.item5 {
+  background-color: cornflowerblue;
+  background-image: url(../image/gug3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* 페이지네이션 스타일 */
+ul,
+li {
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-/*기본스타일 */
-body {
-  font-size: 12px;
-}
-body fieldset {
-  border: none;
-}
-body fieldset legend {
-  display: none;
-}
-body fieldset legend label,
-body fieldset legend input,
-body fieldset legend select {
-  vertical-align: middle;
-}
+.slide_pagination {
+  /* layout */
+  display: flex;
+  gap: 5px;
 
-/*기본링크스타일*/
-a:link {
-  color: black;
-  text-decoration: none;
-}
-a:visited {
-  color: black;
-  text-decoration: none;
-}
-a:hover {
-  color: black;
-  text-decoration: none;
-}
-a:active {
-  color: black;
-  text-decoration: none;
-}
-a:focus {
-  color: black;
-  text-decoration: none;
-}
-
-li {
-  list-style: none;
-}
-
-div#wraper {
-  position: relative;
-  height: 100%;
-  background-color: #e36c6c;
-}
-div#wraper div#loginBox {
+  /* position */
   position: absolute;
-  display: none;
-  top: 150px;
+  bottom: 0;
+  /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
   left: 50%;
-  margin-left: -250px;
-  width: 500px;
-  height: 500px;
-  background-color: #ffffff;
-  /*TODO 비회원주문*/
-}
-div#wraper div#loginBox h3#tab01 {
-  position: absolute;
-  top: 100px;
-  left: 100px;
-  width: 150px;
-  height: 50px;
-  background-color: aqua;
-}
-div#wraper div#loginBox h3#tab01 a {
-  display: block;
-  text-align: center;
-  padding: 15px 0;
-  font-weight: bold;
-  color: red;
-  border-bottom: 3px solid red;
-}
-div#wraper div#loginBox section#login {
-  position: absolute;
-  top: 150px;
-  left: 100px;
-  display: block;
-  width: 300px;
-  border: 1px solid black;
-}
-div#wraper div#loginBox section#login form {
-  border: 1px solid blue;
-}
-div#wraper div#loginBox section#login form table {
-  margin: 0 10px;
-  width: 280px;
-  border-collapse: collapse;
-  border: 0px solid red;
-}
-div#wraper div#loginBox section#login form table td {
-  padding: 5px 5px 5px 0;
-  /*로그인 버튼*/
-}
-div#wraper div#loginBox section#login form table td label {
-  font-weight: bold;
-  border: 0px solid rgb(64, 255, 0);
-}
-div#wraper div#loginBox section#login form table td button {
-  padding: 20px 10px;
-  font-size: 12px;
-  font-weight: bold;
-  color: white;
-  background-color: darkblue;
-}
-div#wraper div#loginBox section#login form table input.box {
-  padding: 3px 0;
-  padding-left: 10px;
-  width: 130px;
-}
-div#wraper div#loginBox div.find {
-  padding: 10px 0;
-  margin: 0 5px;
-  background-color: #b42a2a;
-}
-div#wraper div#loginBox h3#tab02 {
-  position: absolute;
-  left: 250px;
-  top: 100px;
-  width: 150px;
-}
-div#wraper div#loginBox h3#tab02 a {
-  display: block;
-  /*접근성*/
-  color: black;
-  font-weight: bold;
-  text-align: center;
-  padding: 15px 0;
-  background-color: #ffffff;
-}
-div#wraper div#loginBox section.login_guest {
-  position: absolute;
-  top: 150px;
-  left: 100px;
-  width: 300px;
-  border: 1px solid black;
-}
-div#wraper div#loginBox section.login_guest form {
-  border: 0px solid blue;
-}
-div#wraper div#loginBox section.login_guest form table {
-  margin: 0 10px;
-  width: 280px;
-  border: 0px solid red;
-  border-collapse: collapse;
-}
-div#wraper div#loginBox section.login_guest form table td {
-  padding: 5px 5px 5px 0;
-}
-div#wraper div#loginBox section.login_guest form table td label {
-  font-weight: bold;
-  border: 0px solid orange;
-}
-div#wraper div#loginBox section.login_guest form table td button {
-  padding: 20px 10px;
-  font-size: 12px;
-  font-weight: bold;
-  color: white;
-  background-color: darkblue;
-}
-div#wraper div#loginBox section.login_guest form table td input.box {
-  padding: 3px 0;
-  padding-left: 10px;
-  width: 130px;
-}
-div#wraper div#loginBox section.login_guest div.find {
-  padding: 10px 0;
-  margin: 0 5px;
-  border-top: 1px solid #dddddd;
-}
-div#wraper div#loginBox button.login_close {
-  position: absolute;
-  top: 0px;
-  left: 450px;
-  padding: 10px;
-  width: 50px;
-  background-color: rgb(255, 255, 255);
-  border: none;
-}
-div#wraper header#header {
-  margin: 0 auto;
-  width: 1024px;
-  background-color: #b42a2a;
-}
-div#wraper header#header::after {
-  display: block;
-  content: "";
-  clear: both;
-}
-div#wraper header#header div.header_box::after {
-  display: block;
-  content: "";
-  clear: both;
-}
-div#wraper header#header div.header_box h1 {
-  float: left;
-}
-div#wraper header#header div.header_box ul {
-  float: right;
-}
-div#wraper header#header div.header_box ul li {
-  float: left;
-}
-div#wraper header#header div.header_box_nav ul li {
-  float: left;
-}
-div#wraper section#gug_main_img {
-  text-align: center;
-}
-div#wraper section#gug_main_img ul {
-  width: 300px;
-  margin: 0 auto;
-  background-color: antiquewhite;
-}
-div#wraper section#gug_main_img ul::after {
-  display: block;
-  clear: both;
-  content: "";
-}
-div#wraper section#gug_main_img ul li {
-  float: left;
-  list-style: none;
-  padding: 10px;
-  background-color: aqua;
-}
-div#wraper section#gug_main_img ul li:last-child {
-  padding-right: 60px;
-}
-div#wraper section#gug_main_img ul li:first-child {
-  padding-left: 60px;
+  transform: translateX(-50%);
 }
 
-/*# sourceMappingURL=style.css.map */
+.slide_pagination > li {
+  /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+  color: #7fb5ff88;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.slide_pagination > li.active {
+  /* 현재 슬라이드 색상은 투명도 없이 */
+  color: #7fb5ff;
+}
+
+.slide_item_duplicate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 0px;
+  width: 100%;
+  height: 300px;
+  flex-shrink: 0;
+  transition: left 0.15s;
+}

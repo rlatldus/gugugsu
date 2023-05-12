@@ -1,0 +1,260 @@
+* {
+  /*전체 여백,*/
+  padding: 0;
+  margin: 0;
+  /* background-color: rgba(0, 0, 0, 0.34); */
+}
+fieldset {
+  padding: 10px;
+  border: 0;
+}
+html,   
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+legend {
+  display: none;
+}
+a {
+  /* 하이퍼링크 색 변경*/
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  color: #000000;
+}
+#wrap {
+}
+#contentswrap {
+  margin: 0 auto;
+  width: 100%;
+}
+
+li {
+  /* 리스트 스타일 제거*/
+  list-style: none;
+}
+
+.headervar {
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  /*pc*/
+
+  .gugsuImages .containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .gugsuImages .containers .img-gusu {
+    width: 500px;
+    height: 280px;
+  }
+
+  #contentswrap #top {
+    margin: o auto;
+    text-align: center;
+  }
+
+  #contentswrap #top > img {
+    /*국수 이미지*/
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+  }
+
+  #contentswrap #top > p.top_letter {
+    /* 국수 이미지 위에 문구*/
+    text-align: left;
+    position: absolute;
+    width: 524px;
+    padding-right: 500px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    top: 400px;
+    color: aliceblue;
+    font-size: 25px;
+    line-height: 40px;
+  }
+
+  #contentswrap p.top_letter > strong {
+    font-size: 80px;
+    line-height: 100px;
+  }
+
+  /* ---------------------------------------------------------header */
+  .headervar {
+    background-color: #665f5b;
+    height: 100px;
+    transition: all 0.5s;
+  }
+  .headervar:hover {
+    background-color: #ffffff;
+  }
+
+  #contentswrap header {
+    width: 1024px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: all 0.5s;
+  }
+//
+  #contentswrap header:hover h1 a,
+  ul#main li a {
+    color: #000000;
+  }
+  #contentswrap h1 {
+    /*로고*/
+    display: inline-block;
+  }
+
+  #contentswrap h1 a {
+    padding: 5px 20px;
+    line-height: 100px;
+    color: rgb(255, 255, 255);
+    display: block;
+    font-size: 30px;
+    width: 150px;
+  }
+
+  /* ---------------------------------------------------------nav */
+  #contentswrap nav {
+    float: right;
+  }
+
+  #contentswrap ul#main > li {
+    float: left;
+    position: relative;
+  }
+
+  #contentswrap ul#main > li > a {
+    text-align: center;
+    width: 80px;
+    height: 20px;
+    padding: 5px 5px;
+    display: block;
+    font-size: 12px;
+    line-height: 60px;
+    text-decoration: 0;
+    color: rgb(255, 255, 255);
+    font-size: bold;
+  }
+
+  #contentswrap ul#main > li > a:hover {
+    color: rgb(255, 0, 0);
+  }
+
+  #contentswrap ul.sub {
+    /*nav바의 서브 바*/
+    transition: all 1s;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    top: 70px;
+    left: 0;
+    position: absolute;
+    overflow: hidden;
+    border-top: 1px solid rgb(255, 255, 255);
+  }
+
+  #contentswrap ul#main > li:hover ul.sub {
+    border-top: 3px solid rgb(255, 138, 66);
+    /* transition: all 1s; */
+  }
+
+  #contentswrap ul.sub > li {
+    /* 이렇게 하면, 리스트 관계 없이 늘릴 수 있어!*/
+    height: 0;
+    transition: all 0.5s;
+  }
+
+  #contentswrap ul#main > li:hover ul.sub > li {
+    height: 30px;
+  }
+
+  #contentswrap ul.sub > li > a {
+    margin-left: 0;
+    font-size: 12px;
+    background-color: rgb(0, 0, 0);
+    display: block;
+    margin-left: 1px;
+    width: 90px;
+    height: 20px;
+    padding: 5px 0;
+  }
+
+  #contentswrap ul.sub > li > a:hover {
+    background-color: rgb(109, 95, 126);
+    transition: all 1s;
+  }
+}
+
+/* ---------------------------------------------section */
+#contentswrap section.no1 {
+  margin: 0 auto;
+  width: 924px;
+  padding: 80px 80px 100px;
+}
+
+#contentswrap section.no1 > p {
+  /*we are*/
+  /* color: aliceblue; */
+  font-size: 17px;
+  line-height: 40px;
+}
+
+#contentswrap section.no1 > h2 {
+  font-size: 60px;
+  line-height: 120px;
+}
+#contentswrap .no2wrap {
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgb(252, 239, 220);
+}
+
+#contentswrap div.no2 {
+  width: 472px;
+  padding: 20px;
+  display: inline-block;
+}
+
+#contentswrap div.no2 > dl {
+  position: relative;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 2px dashed rgb(123, 123, 123);
+}
+
+#contentswrap div.no2 > dl > dt {
+  font-size: 20px;
+}
+
+#contentswrap div.no2 > dl > dd {
+  padding: 5px;
+  height: 20px;
+  background: url('gugsu.jpg') no-repeat 5px 8px;
+  background-size: 20px 20px;
+}
+
+#contentswrap div.no2 > dl > dd > a {
+  left: 50px;
+  position: absolute;
+}
+
+#contentswrap div.no2 > dl > dd > time {
+  right: 50px;
+  position: absolute;
+}
+
+/* > 이런 표시는 한페이지에 하나만 있으면 필요한가 ????????*/
+/* id와 class, h1 ,h2에대해 */
+/* a태그는 폰트 사이즈가 상속되지 않는다!!! */

@@ -1,0 +1,158 @@
+/* 로그인 */
+div#loginBox {
+  position: absolute;
+  display: none;
+  top: 150px;
+  left: 50%;
+  margin-left: -250px;
+  width: 500px;
+  height: 500px;
+  background-color: #ffffff;
+  z-index: 1;
+}
+div#loginBox h3#tab01 {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 150px;
+  height: 50px;
+}
+div#loginBox h3#tab01 a {
+  display: block;
+  text-align: center;
+  padding: 15px 0;
+  font-weight: bold;
+  color: red;
+  border-bottom: 3px solid red;
+}
+div#loginBox section#login {
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  width: 300px;
+}
+div#loginBox section#login form table {
+  margin: 0 10px;
+  width: 280px;
+  border-collapse: collapse;
+}
+div#loginBox section#login form table td {
+  padding: 5px 5px 5px 0;
+  /*로그인 버튼*/
+}
+div#loginBox section#login form table td label {
+  font-weight: bold;
+  border: 0px solid rgb(64, 255, 0);
+}
+div#loginBox section#login form table td button {
+  padding: 20px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: darkblue;
+}
+div#loginBox section#login form table input.box {
+  padding: 3px 0;
+  padding-left: 10px;
+  width: 130px;
+}
+div#loginBox div.find {
+  padding: 10px 0;
+  margin: 0 5px;
+}
+div#loginBox h3#tab02 {
+  position: absolute;
+  left: 250px;
+  top: 100px;
+  width: 150px;
+}
+div#loginBox h3#tab02 a {
+  display: block;
+  padding: 15px 0;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  background-color: #ffffff;
+}
+div#loginBox section.login_guest {
+  display: none;
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  width: 300px;
+}
+div#loginBox section.login_guest form {
+  border: 0px solid blue;
+}
+div#loginBox section.login_guest form table {
+  margin: 0 10px;
+  width: 280px;
+  border: 0px solid red;
+  border-collapse: collapse;
+}
+div#loginBox section.login_guest form table td {
+  padding: 5px 5px 5px 0;
+}
+div#loginBox section.login_guest form table td label {
+  font-weight: bold;
+  border: 0px solid orange;
+}
+div#loginBox section.login_guest form table td button {
+  padding: 20px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: darkblue;
+}
+div#loginBox section.login_guest form table td input.box {
+  padding: 3px 12px 3px 0;
+  padding-left: 10px;
+  width: 130px;
+}
+div#loginBox section.login_guest div.find {
+  padding: 10px 0;
+  margin: 0 5px;
+  border-top: 1px solid #dddddd;
+}
+div#loginBox button.login_close {
+  position: absolute;
+  top: 0px;
+  left: 450px;
+  padding: 10px;
+  width: 50px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+}
+
+section#gug_main_img {
+  text-align: center;
+}
+section#gug_main_img div.gImage {
+  background-image: url('../image/gug2.jpg');
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 400px;
+}
+section#gug_main_img ul {
+  width: 300px;
+  margin: 0 auto;
+  background-color: antiquewhite;
+}
+section#gug_main_img ul::after {
+  display: block;
+  clear: both;
+  content: '';
+}
+section#gug_main_img ul li {
+  float: left;
+  list-style: none;
+  padding: 10px;
+  background-color: aqua;
+}
+section#gug_main_img ul li:last-child {
+  padding-right: 60px;
+}
+section#gug_main_img ul li:first-child {
+  padding-left: 60px;
+}

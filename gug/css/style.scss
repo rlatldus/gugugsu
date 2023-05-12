@@ -1,294 +1,133 @@
-* {
+// 자동차
+slide {
+  /* layout */
+  display: flex;
+  flex-wrap: nowrap;
+  /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+  overflow: hidden;
+
+  /* position */
+  /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+  position: relative;
+
+  /* size */
+  width: 100%;
+
+  /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+  user-select: none;
+}
+
+.slide_item {
+  /* layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
+  position: relative;
+  left: 0px;
+
+  /* size */
+  width: 100%;
+  height: 300px;
+  /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+  flex-shrink: 0;
+
+  /* transition */
+  transition: left 0.15s;
+}
+
+.slide_button {
+  /* layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* position */
+  position: absolute;
+  /* 버튼이 중앙에 위치하게 하기위해 계산 */
+  top: calc(50% - 16px);
+
+  /* size */
+  width: 32px;
+  height: 32px;
+
+  /* style */
+  border-radius: 100%;
+  background-color: #cccc;
+  cursor: pointer;
+}
+
+.slide_prev_button {
+  left: 10px;
+}
+
+.slide_next_button {
+  right: 10px;
+}
+
+/* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
+.slide_item.item1 {
+  background-color: darkgoldenrod;
+}
+
+.slide_item.item2 {
+  background-color: aqua;
+}
+
+.slide_item.item3 {
+  background-color: blueviolet;
+}
+
+.slide_item.item4 {
+  background-color: burlywood;
+}
+
+.slide_item.item5 {
+  background-color: cornflowerblue;
+}
+
+/* 페이지네이션 스타일 */
+ul,
+li {
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-/*기본스타일 */
-body {
-  font-size: 12px;
+.slide_pagination {
+  /* layout */
+  display: flex;
+  gap: 5px;
 
-  fieldset {
-    border: none;
-
-    legend {
-      display: none;
-
-      label,
-      input,
-      select {
-        vertical-align: middle;
-      }
-    }
-  }
+  /* position */
+  position: absolute;
+  bottom: 0;
+  /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/*기본링크스타일*/
-a {
-  &:link {
-    color: black;
-    text-decoration: none;
-  }
-
-  &:visited {
-    color: black;
-    text-decoration: none;
-  }
-
-  &:hover {
-    color: black;
-    text-decoration: none;
-  }
-
-  &:active {
-    color: black;
-    text-decoration: none;
-  }
-
-  &:focus {
-    color: black;
-    text-decoration: none;
-  }
+.slide_pagination>li {
+  /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+  color: #7fb5ff88;
+  cursor: pointer;
+  font-size: 25px;
 }
-li{
-  list-style: none;
+
+.slide_pagination>li.active {
+  /* 현재 슬라이드 색상은 투명도 없이 */
+  color: #7fb5ff;
 }
-div#wraper {
+
+.slide_item_duplicate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  height: 100%;
-  background-color: #e36c6c;
-
-  // NOTE 로그인:회원로그인/비회원로그인 영역
-  div#loginBox {
-
-    position: absolute;
-    display: none;
-    top: 150px;
-    left: 50%;
-    margin-left: calc(500px/-2);
-    width: 500px;
-    height: 500px;
-    background-color: #ffffff;
-
-    // TODO 회원주문
-    h3#tab01 {
-      position: absolute;
-      top: 100px;
-      left: 100px;
-      width: 150px;
-      height: 50px;
-      background-color: aqua;
-
-      a {
-        display: block;
-        text-align: center;
-        padding: 15px 0;
-        font-weight: bold;
-        color: red;
-        border-bottom: 3px solid red;
-      }
-    }
-
-    // TODO 로그인영역1
-    section#login {
-      position: absolute;
-      top: 150px;
-      left: 100px;
-      display: block;
-      width: 300px;
-      border: 1px solid black;
-
-      form {
-        border: 1px solid blue;
-
-        table {
-          margin: 0 10px;
-          width: 280px;
-          border-collapse: collapse;
-          border: 0px solid red;
-
-          td {
-            padding: 5px 5px 5px 0;
-
-            label {
-              font-weight: bold;
-              border: 0px solid rgb(64, 255, 0)
-            }
-
-            /*로그인 버튼*/
-            button {
-              padding: 20px 10px;
-              font-size: 12px;
-              font-weight: bold;
-              color: white;
-              background-color: darkblue;
-            }
-
-          }
-
-          input.box {
-            padding: 3px 0;
-            padding-left: 10px;
-            width: 130px;
-          }
-        }
-      }
-    }
-
-    // TODO 아이디 비번찾기 
-    div.find {
-      padding: 10px 0;
-      margin: 0 5px;
-      background-color: #b42a2a;
-    }
-
-    /*TODO 비회원주문*/
-    h3#tab02 {
-      position: absolute;
-      left: 250px;
-      top: 100px;
-      width: 150px;
-
-      a {
-        display: block;
-        /*접근성*/
-        color: black;
-        font-weight: bold;
-        text-align: center;
-        padding: 15px 0;
-        background-color: #ffffff;
-      }
-    }
-
-    // TODO 로그인영역2
-    section.login_guest {
-      // display: none;
-      position: absolute;
-      top: 150px;
-      left: 100px;
-      width: 300px;
-      border: 1px solid black;
-
-      form {
-        border: 0px solid blue;
-
-        table {
-          margin: 0 10px;
-          width: 280px;
-          border: 0px solid red;
-          border-collapse: collapse;
-
-
-          td {
-            padding: 5px 5px 5px 0;
-
-            label {
-              font-weight: bold;
-              border: 0px solid orange
-            }
-            button {
-              padding: 20px 10px;
-              font-size: 12px;
-              font-weight: bold;
-              color: white;
-              background-color: darkblue;
-            }
-
-
-            input.box {
-              padding: 3px 0;
-              padding-left: 10px;
-              width: 130px;
-            }
-          }
-        }
-      }
-
-      div.find {
-        padding: 10px 0;
-        margin: 0 5px;
-        border-top: 1px solid #dddddd
-      }
-    }
-
-    // TODO닫기 버튼
-    button.login_close {
-      position: absolute;
-      top: 0px;
-      left: 450px;
-      padding: 10px;
-      width: 50px;
-      background-color: rgb(255, 255, 255);
-      border: none;
-    }
-  }
-
-  // NOTE 해더부분
-  header#header {
-    margin: 0 auto;
-    width: 1024px;
-    background-color: #b42a2a;
-    &::after {
-      display: block;
-      content: "";
-      clear: both;
-    }
-
-    div.header_box {
-      &::after {
-        display: block;
-        content: "";
-        clear: both;
-      }
-      h1 {
-        float: left;
-      }
-
-      ul {
-        float: right;
-        li {
-          float: left;
-        }
-      }
-    }
-
-    div.header_box_nav {
-      ul {
-        li {
-          float: left;
-        }
-      }
-    }
-  }
-
-  // NOTE 국수 메인 사진 호버시 동작
-  section#gug_main_img {
-    text-align: center;
-
-    ul {
-      width: 300px;
-      margin: 0 auto;
-      background-color: antiquewhite;
-
-      &::after {
-        display: block;
-        clear: both;
-        content: "";
-      }
-
-      li {
-        float: left;
-        list-style: none;
-        padding: 10px;
-        background-color: aqua;
-
-        &:last-child {
-          padding-right: 60px;
-        }
-
-        &:first-child {
-          padding-left: 60px;
-        }
-      }
-    }
-  }
+  left: 0px;
+  width: 100%;
+  height: 300px;
+  flex-shrink: 0;
+  transition: left 0.15s;
 }
